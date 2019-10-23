@@ -1,22 +1,23 @@
+//export forced ts to treat this as a moduel and not a script
 export {}
 
-let isBegginner: boolean = true;
-let total:number = 0;
-let name: string = 'Bree'
-let sentense: string = `My name is ${name} and I ${isBegginner == true ? "am": "am not"} developer`
+const isBegginner: boolean = true;
+const total:number = 0;
+const name: string = 'Bree'
+const sentense: string = `My name is ${name} and I ${isBegginner == true ? "am": "am not"} developer`
 
 console.log(sentense);
 
-let n: null = null;
-let u: undefined = undefined;
+const n: null = null;
+const u: undefined = undefined;
 
-let isNew: boolean = null;
-let myName: string = undefined;
+const isNew: boolean = null;
+const myName: string = undefined;
 
-let list1: number[]= [1,2,3]
-let list2: Array<number> = [1,2,3]
+const list1: number[]= [1,2,3]
+const list2: Array<number> = [1,2,3]
 
-let personOne: [string, number] = ["Bree", 26];
+const personOne: [string, number] = ["Bree", 26];
 enum Color {Red = 5, Green, Blue};
 let c: Color = Color.Green;
 console.log(c);
@@ -45,13 +46,19 @@ let a;
 a= 10
 a = true;
 
-let b = 20;
+const b = 20;
 
+//while you don't have to have types, do it anyway
 let multiType: number | boolean;
 multiType = 20;
 multiType = true;
 
-function add(num1: number, num2?: number): number{
+//the question mark makes it so that you are not required to pass
+//through the second parameter 
+//the first parameter must ALWAYS be required
+//that is to say, num1?: number, num2: number would not work
+//function add(num1: number, num2?: number): number{
+function add(num1: number, num2: number = 10): number{
     if(num2){
         return num1 + num2;
     } else{
@@ -61,3 +68,61 @@ function add(num1: number, num2?: number): number{
 
 console.log(add(5,99));
 console.log(add(9));
+
+//while this works, it is not the best way to do things, and will start to look clunky after a while
+// function fullName (person:{firstName: string, lastName: string}){
+//     console.log(`${person.firstName} ${person.lastName}`);   
+// }
+
+//age is not required
+interface Person {
+    firstName: string;
+    lastName: string;
+    age?: number;
+}
+//use interface to keep code in line
+function fullName (person: Person){
+    console.log(`${person.firstName} ${person.lastName}`);   
+}
+
+const p = {
+    firstName: "Bruce",
+    lastName: "Wayne"
+}
+
+fullName(p)
+
+class Employee {
+    //public: this is automatically public, though you can add public before hand for readabilty sake
+    //private: cannot be accessed outside of THIS class
+    //protected: makes it so that things are not accessable outside of classes 
+    public employeeName: string;
+    constructor(name: string){
+        this.employeeName = name;
+    }
+    greet(){
+        console.log(`Good Morning ${this.employeeName}!`);
+        
+    }
+}
+const empl1 = new Employee('Mark')
+console.log(empl1.employeeName);
+empl1.greet()
+
+//this is using inheritance 
+class Manager extends Employee {
+    constructor(managerName: string) {
+        super(managerName);
+    }
+    //method
+    delegateWork(){
+        console.log(`Manager Delegating tasks ${this.employeeName}`);
+        
+    }
+}
+const m1 = new Manager(`Bruce`)
+m1.delegateWork()
+m1.greet()
+console.log(m1.employeeName);
+
+//
