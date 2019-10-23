@@ -36,4 +36,22 @@ if (hasName(myVariable)) {
 else {
     console.log("no name");
 }
-myVariable.toUpperCase();
+// (myVariable as string).toUpperCase()
+//idk why they say this would work, because that is a lie
+var a;
+a = 10;
+a = true;
+var b = 20;
+var multiType;
+multiType = 20;
+multiType = true;
+function add(num1, num2) {
+    if (num2) {
+        return num1 + num2;
+    }
+    else {
+        return num1;
+    }
+}
+console.log(add(5, 99));
+console.log(add(9));
