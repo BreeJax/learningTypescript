@@ -13,18 +13,22 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
+//export forced ts to treat this as a moduel and not a script
 var isBegginner = true;
 var total = 0;
-var name = 'Bree';
+var name = "Bree";
 var sentense = "My name is " + name + " and I " + (isBegginner == true ? "am" : "am not") + " developer";
 console.log(sentense);
+//null and undefined are 'subtypes'
 var n = null;
 var u = undefined;
 var isNew = null;
 var myName = undefined;
+//list1 and list2 are the same, neither is better, all coding preference there
 var list1 = [1, 2, 3];
 var list2 = [1, 2, 3];
 var personOne = ["Bree", 26];
+//enum types are how you can give names to values
 var Color;
 (function (Color) {
     Color[Color["Red"] = 5] = "Red";
@@ -32,11 +36,12 @@ var Color;
     Color[Color["Blue"] = 7] = "Blue";
 })(Color || (Color = {}));
 ;
-var c = Color.Green;
-console.log(c);
+var c = Color.Red;
+console.log(c + " Color");
+//if you don't know what value type will be, use any
 var randomValue = 10;
 randomValue = true;
-randomValue = 'Bree';
+randomValue = "Bree";
 var myVariable = 10;
 function hasName(obj) {
     return !!obj &&
@@ -93,7 +98,7 @@ var Employee = /** @class */ (function () {
     };
     return Employee;
 }());
-var empl1 = new Employee('Mark');
+var empl1 = new Employee("Mark");
 console.log(empl1.employeeName);
 empl1.greet();
 //this is using inheritance 

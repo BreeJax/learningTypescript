@@ -1,30 +1,34 @@
-//export forced ts to treat this as a moduel and not a script
 export {}
+//export forced ts to treat this as a moduel and not a script
 
 const isBegginner: boolean = true;
 const total:number = 0;
-const name: string = 'Bree'
+const name: string = "Bree"
 const sentense: string = `My name is ${name} and I ${isBegginner == true ? "am": "am not"} developer`
 
 console.log(sentense);
-
+//null and undefined are 'subtypes'
 const n: null = null;
 const u: undefined = undefined;
 
 const isNew: boolean = null;
 const myName: string = undefined;
 
+//list1 and list2 are the same, neither is better, all coding preference there
 const list1: number[]= [1,2,3]
 const list2: Array<number> = [1,2,3]
 
 const personOne: [string, number] = ["Bree", 26];
-enum Color {Red = 5, Green, Blue};
-let c: Color = Color.Green;
-console.log(c);
 
+//enum types are how you can give names to values
+enum Color {Red = 5, Green, Blue};
+let c: Color = Color.Red;
+console.log(c + " Color");
+
+//if you don't know what value type will be, use any
 let randomValue: any = 10;
 randomValue = true;
-randomValue = 'Bree'
+randomValue = "Bree"
 
 let myVariable: unknown = 10;
 
@@ -105,7 +109,7 @@ class Employee {
         
     }
 }
-const empl1 = new Employee('Mark')
+const empl1 = new Employee("Mark")
 console.log(empl1.employeeName);
 empl1.greet()
 
